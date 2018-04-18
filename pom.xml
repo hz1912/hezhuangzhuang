@@ -14,6 +14,7 @@
         <module>hz-persistence</module>
         <module>hz-services</module>
         <module>hz-web</module>
+        <module>hz-core</module>
     </modules>
 
     <properties>

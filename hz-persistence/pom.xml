@@ -17,25 +17,10 @@
             <artifactId>hz-pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- 添加mybatis的依赖 -->
-        <!-- Mybatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-        </dependency>
-        <!-- MySql -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- 连接池 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
+    <dependency>
+        <groupId>com.hz</groupId>
+        <artifactId>hz-core</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
     </dependencies>
 </project>
