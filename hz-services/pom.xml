@@ -12,11 +12,11 @@
     <artifactId>hz-service</artifactId>
     <packaging>jar</packaging>
   <dependencies>
-    <dependency>
-        <groupId>com.hz</groupId>
-        <artifactId>hz-persistence</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </dependency>
+      <dependency>
+          <groupId>com.hz</groupId>
+          <artifactId>hz-core</artifactId>
+          <version>1.0-SNAPSHOT</version>
+      </dependency>
 </dependencies>
 
 </project>
