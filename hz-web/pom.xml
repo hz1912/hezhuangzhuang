@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>hz-root</artifactId>
+        <groupId>com.hz</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>hz-web</artifactId>
+    <packaging>war</packaging>
+    <name>hz-web Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+   <dependencies>
+       <dependency>
+           <groupId>com.hz</groupId>
+           <artifactId>hz-service</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+           <scope>test</scope>
+       </dependency>
+       <!-- JSP相关 -->
+       <dependency>
+           <groupId>jstl</groupId>
+           <artifactId>jstl</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>javax.servlet</groupId>
+           <artifactId>servlet-api</artifactId>
+           <scope>provided</scope>
+       </dependency>
+       <dependency>
+           <groupId>javax.servlet</groupId>
+           <artifactId>jsp-api</artifactId>
+           <scope>provided</scope>
+       </dependency>
+   </dependencies>
+    <build>
+        <defaultGoal>install</defaultGoal>
+       <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.9</version>
+                <configuration>
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+
+                    </webAppConfig>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+</project>
+
