@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hz.hz.persistence.dao.AdminDao">
+
+	<!--table select 字段-->
+	<sql id="adminTableFields">
+		`id`,
+		`name`,
+		`password`,
+		`salt`,
+		`create_time`,
+		`update_time`
+	</sql>
+	<!--属性-->
+	<parameterMap id="adminParameterMap" type="com.hz.hz.persistence.model.Admin">
+		<parameter property="id"/>
+		<parameter property="name"/>
+		<parameter property="password"/>
+		<parameter property="salt"/>
+		<parameter property="createTime"/>
+		<parameter property="updateTime"/>
+	</parameterMap>
+
+	<!--数据库字段与对象属性映射-->
+	<resultMap id="adminResultMap" type="com.hz.hz.persistence.model.Admin">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="password" column="password"/>
+		<result property="salt" column="salt"/>
+		<result property="createTime" column="create_time"/>
+		<result property="updateTime" column="update_time"/>
+	</resultMap>
+
+	<!--新增-->
+	<insert id="insert" parameterMap="adminParameterMap" keyProperty="id" useGeneratedKeys="true">
+		insert into admin(`id`,`name`,`password`,`salt`,`create_time`,`update_time`) values(#{id},#{name},#{password},#{salt},#{createTime},#{updateTime})
+	</insert>
+
+	<!--更新-->
+	<update id="update" parameterMap="adminParameterMap">
+		update admin set
+		<trim suffixOverrides=",">
+			<if test="name != null">
+				`name`=#{name},
+			</if>
+			<if test="password != null">
+				`password`=#{password},
+			</if>
+			<if test="salt != null">
+				`salt`=#{salt},
+			</if>
+			<if test="createTime != null">
+				`create_time`=#{createTime},
+			</if>
+			<if test="updateTime != null">
+				`update_time`=#{updateTime},
+			</if>
+		</trim>
+		where `id`=#{id}
+	</update>
+
+	<!--删除-->
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from admin where `id`=#{id}
+	</delete>
+
+	<!--查询-->
+	<select id="getAdminByKey" resultMap="adminResultMap" parameterType="java.lang.Integer">
+		select <include refid="adminTableFields"/> from admin where `id`=#{id}
+	</select>
+
+	<!--根据条件查询-->
+	<select id="getAdmins" resultMap="adminResultMap" >
+		select <include refid="adminTableFields"/> from admin
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="id != null">
+				 and  `id`=#{id}
+			</if>
+			<if test="name != null">
+				 and  `name`=#{name}
+			</if>
+			<if test="password != null">
+				 and  `password`=#{password}
+			</if>
+			<if test="salt != null">
+				 and  `salt`=#{salt}
+			</if>
+			<if test="createTime != null">
+				 and  `create_time`=#{createTime}
+			</if>
+			<if test="updateTime != null">
+				 and  `update_time`=#{updateTime}
+			</if>
+		</trim>
+	</select>
+</mapper>
