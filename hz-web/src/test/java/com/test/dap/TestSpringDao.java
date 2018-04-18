@@ -8,6 +8,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpringDao {
 
 
+
+
+
+
     private static  ApplicationContext applicationContext;
 
     public static  void  main(String args[]){
